@@ -27,9 +27,7 @@ alias set_https_proxy="export https_proxy="
 
 alias edit_init="nano ~/mybash/mybin.sh"
 
-lwd=$(pwd)
-
-alias reload_my_init='source ~/mybash/mybin.sh && cd ~/mybash && reset && echo "File change,Please enter commit message" && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage && cd $lwd'
+alias reload_my_init='lwd=$(pwd) && source ~/mybash/mybin.sh && cd ~/mybash && reset && echo "File change,Please enter commit message" && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage && cd $lwd'
 
 alias open_proj="subl --project ~/development/sublime_projects/$1"
 
@@ -56,4 +54,4 @@ alias deploy_openmrs_module_ngcustomui="cd $openmrs_module_ngcustomui_path && mv
 
 openmrs_module_ngcustomui_path=/home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/
 
-alias push_init="cd ~/mybash && git push github johnthebeloved && cd $lwd"
+alias push_init="lwd=$(pwd) && cd ~/mybash && git push github johnthebeloved && cd $lwd"
