@@ -55,6 +55,6 @@ alias add_openmrs_module_ngcustomui="cp /home/johnthebeloved/development/project
 
 alias deploy_openmrs_module_ngcustomui="cd $openmrs_module_ngcustomui_path && mvn clean install package -P deploy-web -D deploy.path='../../../openmrs-core/webapp/src/main/webapp'"
 
-openmrs_module_ngcustomui_path=/home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/
+export openmrs_module_ngcustomui_path=/home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/
 
 alias push_init="lwd=$(pwd) && cd ~/mybash && git push github johnthebeloved && cd $lwd"
