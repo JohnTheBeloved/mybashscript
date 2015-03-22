@@ -49,6 +49,7 @@ export CATALINA_OPTS="-Xms1024m -Xmx1024m"
 
 alias who_is_using_port="netstat -plten | grep $1"
 
+alias deploy_openmrs_core="cd /home/johnthebeloved/development/project/java/openmrs-core && mvn clean install -DskipTests"
 
 alias deploy_openmrs_module_ngcustomui="cd $openmrs_module_ngcustomui_path && mvn package -P deploy-web -D deploy.path='../../../openmrs-core/webapp/src/main/webapp'"
 
