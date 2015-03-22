@@ -29,7 +29,7 @@ alias edit_init="nano ~/mybash/mybin.sh"
 
 lwd=$(pwd)
 
-alias reload_my_init="source ~/mybash/mybin.sh && cd ~/mybash && reset && echo 'File change,Please enter commit message' && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage && cd $lwd"
+alias reload_my_init='source ~/mybash/mybin.sh && cd ~/mybash && reset && echo "File change,Please enter commit message" && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage && cd $lwd'
 
 alias open_proj="subl --project ~/development/sublime_projects/$1"
 
@@ -37,18 +37,22 @@ alias list_subl_projects="ls ~/development/sublime_projects"
 
 alias set_proxy="export http_proxy=http://127.0.0.1:3128 && export https_proxy=http://127.0.0.1:3128"
 
-alias start_openmrs="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./startup.sh"
+alias start_openmrs_tomcat="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./startup.sh"
 
-alias stop_openmrs="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./shutdown.sh"
+alias stop_openmrs_tomcat="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./shutdown.sh"
 
-alias openmrs_log="tail -f /opt/manualInstalls/appservers/tomcat_instances/openmrs/logs/*.*"
+alias_start_openmrs_dev="cd ~/development/project/java/openmrs-core/webapp/ && mvn jetty:run"
+
+alias monitor_openmrs_log_tomcat="tail -f /opt/manualInstalls/appservers/tomcat_instances/openmrs/logs/*.*"
+
+alias move_depolyed_openmrs_core="mv ~/development/project/java/openmrs-core/webapp/target/openmrs.war /opt/manualInstalls/appservers/tomcat_instances/openmrs/webapps/"
 
 export CATALINA_OPTS="-Xms1024m -Xmx1024m"
 
 alias who_is_using_port="netstat -plten | grep $1"
 
 
-alias deploy_openmrs_module="mvn package -P deploy-web -D deploy.path='../../../openmrs-core/webapp/src/main/webapp'"
+alias deploy_openmrs_module_ngcustomui="cd $openmrs_module_ngcustomui_path && mvn package -P deploy-web -D deploy.path='../../../openmrs-core/webapp/src/main/webapp'"
 
 openmrs_module_ngcustomui_path=/home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/
 
