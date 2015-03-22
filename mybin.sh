@@ -39,7 +39,7 @@ alias start_openmrs_tomcat="/opt/manualInstalls/appservers/tomcat_instances/open
 
 alias stop_openmrs_tomcat="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./shutdown.sh"
 
-alias_start_openmrs_dev="cd ~/development/project/java/openmrs-core/webapp/ && mvn jetty:run"
+alias start_openmrs_dev="cd ~/development/project/java/openmrs-core/webapp/ && mvn jetty:run"
 
 alias monitor_openmrs_log_tomcat="tail -f /opt/manualInstalls/appservers/tomcat_instances/openmrs/logs/*.*"
 
