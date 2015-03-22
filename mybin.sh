@@ -29,7 +29,7 @@ alias edit_init="nano ~/mybash/mybin.sh"
 
 lwd=$(pwd)
 
-alias reload_my_init="source ~/mybash/mybin.sh && cd ~/mybash && echo 'File change,Please enter commit message' && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage"
+alias reload_my_init="source ~/mybash/mybin.sh && cd ~/mybash && reset && echo 'File change,Please enter commit message' && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage && cd $lwd"
 
 alias open_proj="subl --project ~/development/sublime_projects/$1"
 
