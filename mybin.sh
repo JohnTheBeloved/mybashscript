@@ -52,4 +52,4 @@ alias deploy_openmrs_module="mvn package -P deploy-web -D deploy.path='../../../
 
 openmrs_module_ngcustomui_path=/home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/
 
-alias update_my_init="cd ~/mybash && git push github johnthebeloved && cd $lwd"
+alias push_init="cd ~/mybash && git push github johnthebeloved && cd $lwd"
