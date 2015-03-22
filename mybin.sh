@@ -51,7 +51,7 @@ alias who_is_using_port="netstat -plten | grep $1"
 
 alias deploy_openmrs_core="cd /home/johnthebeloved/development/project/java/openmrs-core && mvn clean install -DskipTests"
 
-alias deploy_openmrs_module_ngcustomui="cp /home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/omod/target/ngcustomui-1.0-SNAPSHOT.omod /home/johnthebeloved/.OpenMRS/modules/"
+alias add_openmrs_module_ngcustomui="cp /home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/omod/target/ngcustomui-1.0-SNAPSHOT.omod /home/johnthebeloved/.OpenMRS/modules/"
 
 alias deploy_openmrs_module_ngcustomui="cd $openmrs_module_ngcustomui_path && mvn package -P deploy-web -D deploy.path='../../../openmrs-core/webapp/src/main/webapp'"
 
