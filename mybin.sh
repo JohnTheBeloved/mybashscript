@@ -1,63 +1,45 @@
 #!/bin/bash
 
 #My Custom shell script
+
 echo "Setting Maven Path"
+
+JAVA_HOME=$MANUAL_INSTALL_PATH/java/jdk1.7.0_75
+
+MANUAL_INSTALL_PATH=/opt/manualInstalls
+
+DEV_PATH=~/development
+
 MAVEN_SETTINGS_PATH=/usr/share/maven/conf/settings.xml
 
 HTTP_PROXY=http://127.0.0.1:3128
 
 HTTPS_PROXY=$HTTP_PROXY
+ 
+ 
+openmrs_log_files=$MANUAL_INSTALL_PATH/appservers/tomcat_instances/openmrs/logs/*.*
 
-echo "Setting openmrs start alias to 'start_openmrs_start'"
+#Set npm packages download dir 
 
-alias start_openmrs_tomcat='/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./startup.sh'
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
+unset MANPATH
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+nvm use v0.12.4
 
-echo "Setting openmrs log files alias to openmrs_log_files"
-openmrs_log_files=/opt/manualInstalls/appservers/tomcat_instances/openmrs/logs/*.*
-
-alias set_node_js_proxy="npm config set proxy"
-alias set_node_js_https_proxy="npm config set https-proxy"
+[ ! -d $NPM_PACKAGES  ] && mkdir $NPM_PACKAGES
 
 
-echo "setting set proxy alis to export"
 
-alias set_http_proxy="export http_proxy="
-
-alias set_https_proxy="export https_proxy="
-
-alias edit_init="nano ~/mybash/mybin.sh"
-
-alias reload_my_init='lwd=$(pwd) && source ~/mybash/mybin.sh && cd ~/mybash && reset && echo "File change,Please enter commit message" && read gitmessage && git commit -o ~/mybash/mybin.sh -m $gitmessage && cd $lwd'
-
-alias open_proj="subl --project ~/development/sublime_projects/$1"
-
-alias list_subl_projects="ls ~/development/sublime_projects"
-
-alias set_proxy="export http_proxy=http://127.0.0.1:3128 && export https_proxy=http://127.0.0.1:3128"
-
-alias start_openmrs_tomcat="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./startup.sh"
-
-alias stop_openmrs_tomcat="/opt/manualInstalls/appservers/tomcat_instances/openmrs/bin/./shutdown.sh"
-
-alias start_openmrs_dev="cd ~/development/project/java/openmrs-core/webapp/ && mvn jetty:run"
-
-alias monitor_openmrs_log_tomcat="tail -f /opt/manualInstalls/appservers/tomcat_instances/openmrs/logs/*.*"
-
-alias move_depolyed_openmrs_core="mv ~/development/project/java/openmrs-core/webapp/target/openmrs.war /opt/manualInstalls/appservers/tomcat_instances/openmrs/webapps/"
-
-export CATALINA_OPTS="-Xms1024m -Xmx1024m"
-
-alias who_is_using_port="netstat -plten | grep $1"
-
-alias deploy_openmrs_core="cd /home/johnthebeloved/development/project/java/openmrs-core && mvn clean install -DskipTests"
-
-alias add_openmrs_module_ngcustomui="cp /home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/omod/target/ngcustomui-1.0-SNAPSHOT.omod /home/johnthebeloved/.OpenMRS/modules/"
-
-alias deploy_openmrs_module_ngcustomui="cd $openmrs_module_ngcustomui_path && mvn clean install package -P deploy-web -D deploy.path='../../../openmrs-core/webapp/src/main/webapp'"
-
-export openmrs_module_ngcustomui_path=/home/johnthebeloved/development/project/java/openmrs_modules/ngcustomui/
-
-alias push_init="lwd=$(pwd) && cd ~/mybash && git push github johnthebeloved && cd $lwd"
+#Load my export variables
+source ~/mybashscript/exports.sh
 
 #Load my work init
-source ~/mybash/apps.sh
+source ~/mybashscript/apps.sh
+
+
+#Load bin aliases
+source ~/mybashscript/aliases.sh
+
+
