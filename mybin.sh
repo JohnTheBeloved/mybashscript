@@ -4,18 +4,17 @@
 
 echo "Setting Maven Path"
 
-JAVA_HOME=$MANUAL_INSTALL_PATH/java/jdk1.7.0_75
-
 MANUAL_INSTALL_PATH=/opt/manualInstalls
 
-DEV_PATH=~/development
+JAVA_HOME=$MANUAL_INSTALL_PATH/java/jdk1.7.0_75
+
+DEV_PATH=~/develop
 
 MAVEN_SETTINGS_PATH=/usr/share/maven/conf/settings.xml
 
 HTTP_PROXY=http://127.0.0.1:3128
 
 HTTPS_PROXY=$HTTP_PROXY
- 
  
 openmrs_log_files=$MANUAL_INSTALL_PATH/appservers/tomcat_instances/openmrs/logs/*.*
 
@@ -33,13 +32,13 @@ nvm use v0.12.4
 
 
 #Load my export variables
-source ~/mybashscript/exports.sh
+source exports.sh
 
 #Load my work init
-source ~/mybashscript/apps.sh
+source apps.sh
 
 
 #Load bin aliases
-source ~/mybashscript/aliases.sh
+source aliases.sh
 
 
