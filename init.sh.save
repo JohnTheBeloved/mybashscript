@@ -1,0 +1,24 @@
+export ANDROID_HOME=/Users/john.alade/Library/Android/sdk
+
+
+alias start_aether='cd /Users/john.alade/develop/phyton/aether/aether-bootstrap && docker-compose -d up && docker-compose -f docker-compose-connect.yml -d up'
+alias stop_aether='cd /Users/john.alade/develop/phyton/aether/aether-bootstrap && docker-compose stop && docker-compose -f docker-compose-connect.yml stop'
+
+
+alias start_rapidpro='cd /Users/john.alade/develop/phyton/rapidpro && sudo ifconfig lo0 alias 192.168.10.10 && docker-compose up -d postgresql && docker-compose up -d redis && docker-compose up rapidpro'
+alias stop_rapidpro='cd /Users/john.alade/develop/phyton/rapidpro && docker-compose stop postgresql && docker-compose stop redis && docker-compose stop rapidpro'
+
+
+alias start_nginx='sudo nginx'
+alias stop_nginx='sudo nginx -s stop'
+
+alias start_lmis='cd /Users/john.alade/develop/node/angularJS/lmis/dashboard && grunt serve'
+
+alias who_is_using='sudo lsof -i '
+
+alias adb_open= 'adb tcpip '
+alias adb_connect='adb connect'
+
+alias where_is='sudo find / -name '
+
+
